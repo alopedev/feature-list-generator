@@ -153,3 +153,9 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   lgCols?: 2 | 3 | 4 | 6;
   gap?: 'sm' | 'md' | 'lg';
 }
+
+export interface AnimatedHeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  headlines: string[];
+  interval?: number;
+  level?: 1 | 2 | 3;
+}
