@@ -125,3 +125,15 @@ export interface CardProps {
   variant?: 'default' | 'elevated' | 'outlined';
   className?: string;
 }
+
+export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+}
+
+export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  size?: 'sm' | 'base' | 'lg';
+}
+
+export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+  required?: boolean;
+}

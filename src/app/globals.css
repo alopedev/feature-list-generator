@@ -45,6 +45,10 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* Line height utilities */
+  --line-height-tight: 1.25;
+  --line-height-relaxed: 1.625;
+
   /* Spacing scale (generous whitespace) */
   --spacing-xs: 0.5rem;    /* 8px */
   --spacing-sm: 1rem;       /* 16px */
@@ -80,7 +84,16 @@ body {
 /* Base typography styles */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  line-height: 1.2;
+  /* line-height controlled via Tailwind utilities in components */
+}
+
+/* Custom line-height utilities */
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
 }
 
 /* Smooth scrolling */

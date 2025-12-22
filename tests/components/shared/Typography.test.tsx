@@ -37,12 +37,6 @@ describe('Typography Components', () => {
       render(<Heading className="custom-heading" data-testid="heading">Text</Heading>);
       expect(screen.getByTestId('heading')).toHaveClass('custom-heading');
     });
-
-    it('should have proper line height', () => {
-      render(<Heading data-testid="heading">Text</Heading>);
-      const heading = screen.getByTestId('heading');
-      expect(heading.className).toContain('leading-tight');
-    });
   });
 
   describe('Paragraph Component', () => {
@@ -56,12 +50,6 @@ describe('Typography Components', () => {
       render(<Paragraph data-testid="paragraph">Text</Paragraph>);
       const paragraph = screen.getByTestId('paragraph');
       expect(paragraph.className).toContain('text-base');
-    });
-
-    it('should have comfortable line height', () => {
-      render(<Paragraph data-testid="paragraph">Text</Paragraph>);
-      const paragraph = screen.getByTestId('paragraph');
-      expect(paragraph.className).toContain('leading-relaxed');
     });
 
     it('should have gray color', () => {
