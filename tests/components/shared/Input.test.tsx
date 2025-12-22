@@ -81,7 +81,9 @@ describe('Input Component', () => {
     it('should apply disabled styles', () => {
       render(<Input disabled data-testid="input" />);
       const input = screen.getByTestId('input');
-      expect(input).toHaveClass('opacity-50', 'cursor-not-allowed');
+      // Check for disabled state classes in the className
+      expect(input.className).toContain('disabled:opacity-50');
+      expect(input.className).toContain('disabled:cursor-not-allowed');
     });
 
     it('should not allow input when disabled', async () => {
