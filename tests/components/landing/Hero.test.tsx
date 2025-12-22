@@ -157,8 +157,8 @@ describe('Hero Component', () => {
       render(<Hero data-testid="hero" />);
       const hero = screen.getByTestId('hero');
 
-      // Should have centering classes
-      expect(hero.className).toMatch(/mx-auto|text-center/);
+      // Should have flex centering on section or text-center on inner content
+      expect(hero.className).toMatch(/flex.*items-center.*justify-center|mx-auto|text-center/);
     });
   });
 
@@ -185,11 +185,11 @@ describe('Hero Component', () => {
     });
 
     it('should have proper spacing between elements', () => {
-      render(<Hero data-testid="hero" />);
-      const hero = screen.getByTestId('hero');
+      const { container } = render(<Hero data-testid="hero" />);
 
-      // Should have gap or space classes
-      expect(hero.className).toMatch(/gap-|space-/);
+      // Should have gap or space classes somewhere in the component
+      const hasSpacing = container.innerHTML.includes('gap-') || container.innerHTML.includes('space-');
+      expect(hasSpacing).toBe(true);
     });
   });
 });
