@@ -159,3 +159,9 @@ export interface AnimatedHeadlineProps extends React.HTMLAttributes<HTMLHeadingE
   interval?: number;
   level?: 1 | 2 | 3;
 }
+
+export interface FadeInSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  threshold?: number;
+  rootMargin?: string;
+  duration?: number;
+}
