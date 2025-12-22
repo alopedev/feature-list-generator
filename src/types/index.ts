@@ -137,3 +137,19 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElemen
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   required?: boolean;
 }
+
+export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+  size?: 'sm' | 'md' | 'lg';
+  bg?: 'white' | 'gray' | 'transparent';
+}
+
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
+  cols?: 1 | 2 | 3 | 4;
+  mdCols?: 2 | 3 | 4;
+  lgCols?: 2 | 3 | 4 | 6;
+  gap?: 'sm' | 'md' | 'lg';
+}
