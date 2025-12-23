@@ -1,130 +1,70 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /**
- * Design System inspired by diabrowser.com
- * Modern minimalist aesthetic with neutral tones + warm earth accents
+ * Japanese Minimalist Design System
+ *
+ * Principles:
+ * - Ma (間): Negative space is intentional
+ * - Kanso (簡素): Simplicity - eliminate unnecessary elements
+ * - Shibui (渋い): Subtle elegance over flashiness
+ * - Seijaku (静寂): Tranquility - calm, not aggressive
+ * - Shizen (自然): Naturalness - nothing forced
  */
 
 :root {
+  /* Pure white background - Ma principle */
   --background: #ffffff;
-  --foreground: #171717;
+  /* Ink black foreground - High contrast, readable */
+  --foreground: #000000;
 }
 
-@theme inline {
-  /* Custom Colors - diabrowser.com inspired */
-  --color-gold: #fcdc71;
-  --color-blue: #607caa;
-  --color-orange: #f2a25c;
-  --color-brown: #98816e;
-
-  /* Neutral grays with warm undertones */
-  --color-gray-50: #fafafa;
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #e5e5e5;
-  --color-gray-300: #d4d4d4;
-  --color-gray-400: #a3a3a3;
-  --color-gray-500: #737373;
-  --color-gray-600: #525252;
-  --color-gray-700: #404040;
-  --color-gray-800: #262626;
-  --color-gray-900: #171717;
-
-  /* Semantic colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--color-gold);
-  --color-secondary: var(--color-blue);
-  --color-accent: var(--color-orange);
-
-  /* Border radius - diabrowser.com style */
-  --radius-sm: 8px;
-  --radius-md: 20px;
-  --radius-lg: 40px;
-
-  /* Typography */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  /* Line height utilities */
-  --line-height-tight: 1.25;
-  --line-height-relaxed: 1.625;
-
-  /* Spacing scale (generous whitespace) */
-  --spacing-xs: 0.5rem;    /* 8px */
-  --spacing-sm: 1rem;       /* 16px */
-  --spacing-md: 1.5rem;     /* 24px */
-  --spacing-lg: 2rem;       /* 32px */
-  --spacing-xl: 3rem;       /* 48px */
-  --spacing-2xl: 4rem;      /* 64px */
-  --spacing-3xl: 6rem;      /* 96px */
-
-  /* Breakpoints */
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global reset - Kanso principle */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Noto Serif JP as default - Typography IS the design */
+  font-family: var(--font-noto-serif-jp), Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Base typography styles */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  /* line-height controlled via Tailwind utilities in components */
-}
-
-/* Custom line-height utilities */
-.leading-tight {
-  line-height: 1.25;
-}
-
-.leading-relaxed {
+  overflow-x: hidden;
+  /* Generous line-height for breathing */
   line-height: 1.625;
 }
 
-/* Smooth scrolling */
+/* Headings - Refined typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-noto-serif-jp), Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Smooth scrolling - Seijaku principle */
 html {
   scroll-behavior: smooth;
 }
 
-/* Floating animations for Hero decorative elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(12deg); }
-  50% { transform: translateY(-20px) rotate(12deg); }
+/* Selection styling - Vermillion accent */
+::selection {
+  background-color: #dd4124;
+  color: #ffffff;
 }
 
-@keyframes float-delayed {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  50% { transform: translateY(-25px) rotate(-6deg); }
+::-moz-selection {
+  background-color: #dd4124;
+  color: #ffffff;
 }
 
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(45deg); }
-  50% { transform: translateY(-15px) rotate(45deg); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 7s ease-in-out infinite 1s;
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite 0.5s;
+/* Focus outline - Accessible, minimal */
+:focus-visible {
+  outline: 2px solid #dd4124;
+  outline-offset: 2px;
 }
